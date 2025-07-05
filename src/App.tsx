@@ -1,13 +1,16 @@
-import './App.css';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './store';
+import AppNavigation from './components/AppNavigation';
 
-function App() {
-  const test = 'Hello';
-
+const App = () => {
   return (
-    <div className="App">
-      <p>zxc</p>
-    </div>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppNavigation />
+      </PersistGate>
+    </Provider>
   );
-}
+};
 
 export default App;
